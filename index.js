@@ -9,6 +9,7 @@ program
     .option('-t, --token <token>')
     .description('Enter github personal access token')
     .action(async token => {
+        //TODO: Use inquirer to ask the config information -> name, email
         config.set('github',token)
         const response = await octokit.request(`GET /user`)
         config.set('user',response.data.login)
